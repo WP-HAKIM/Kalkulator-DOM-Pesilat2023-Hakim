@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator DOM Javascript</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <div class="input">
+                <div class="input-value">
+                    <input type="number" name="valueA" id="valueA" placeholder="Nilai Pertama">
+                    <input type="number" name="valueB" id="valueB" placeholder="Nilai Kedua">
+                </div>
+                <div class="operator">
+                    <input type="button" value="+" onclick="tambah()">
+                    <input type="button" value="-" onclick="kurang()">
+                    <input type="button" value="*" onclick="kali()">
+                    <input type="button" value="/" onclick="bagi()">
+                </div>
+                <input type="button" value="Reset" onclick="reset()" class="reset">
+            </div>
+            <div class="output">
+                <h2>Hasil:</h2>
+                <p id="hasil">0</p>
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        var calculate;
+        function tambah() {
+            var valueA = document.getElementById("valueA").value;
+            var valueB = document.getElementById("valueB").value;
+            if (valueA=="" && valueB==""){
+                alert("Mohon Isi Nilai Pertama dan Kedua dengan benar");
+            } else{
+                calculate = Number(valueA) + Number(valueB);
+                document.getElementById("hasil").innerHTML=calculate;
+            }
+            
+        }
+        function kurang() {
+            var valueA = document.getElementById("valueA").value;
+            var valueB = document.getElementById("valueB").value;
+            if (valueA=="" && valueB==""){
+                alert("Mohon Isi Nilai Pertama dan Kedua dengan benar");
+            } else{
+                calculate = Number(valueA) - Number(valueB);
+                document.getElementById("hasil").innerHTML=calculate;
+            }
+            
+        }
+        function bagi() {
+            var valueA = document.getElementById("valueA").value;
+            var valueB = document.getElementById("valueB").value;
+            if (valueA=="" && valueB==""){
+                alert("Mohon Isi Nilai Pertama dan Kedua dengan benar");
+            } else{
+                calculate = Number(valueA) / Number(valueB);
+            document.getElementById("hasil").innerHTML=calculate.toFixed(2);
+            }
+        }
+        function kali() {
+            var valueA = document.getElementById("valueA").value;
+            var valueB = document.getElementById("valueB").value;
+            if (valueA=="" && valueB==""){
+                alert("Mohon Isi Nilai Pertama dan Kedua dengan benar");
+            } else{
+                calculate = Number(valueA) * Number(valueB);
+            document.getElementById("hasil").innerHTML=calculate;
+            }
+        }
+        function reset() {
+            document.getElementById("valueA").value ="";
+            document.getElementById("valueB").value ="";
+            document.getElementById("hasil").innerHTML=0;
+            alert("Kalkulator di Reset");
+        }
+
+    </script>
+</body>
+</html>
